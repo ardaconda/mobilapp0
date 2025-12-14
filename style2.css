@@ -126,3 +126,55 @@ a{
   box-shadow: 0 100px 50px rgba(0, 0, 0, 0.3);
 
 }
+/* Mobil uyum için */
+.main {
+  flex-wrap: wrap;              /* küçük ekranda alt satıra geçsin */
+  max-width: 100%;
+}
+
+/* Telefon ekranları */
+@media (max-width: 768px) {
+  body {
+    height: auto;               /* 100vh bazen iOS'ta taşırır */
+    min-height: 100vh;
+    padding: 18px;              /* kenarlardan nefes */
+  }
+
+  .main {
+    width: min(520px, 100%);    /* kutuyu ekrana sığdır */
+    padding: 18px;              /* 50px çok büyüktü */
+    gap: 12px;
+    justify-content: center;
+  }
+
+  /* Kutuları küçült ve 2'li diz */
+  #s, #t, #f, #fi {
+    width: calc(50% - 12px);    /* 2 sütun */
+    height: 180px;              /* 250px telefonda uzun kalıyor */
+    margin: 0;                  /* auto margin mobilde garip */
+  }
+
+  a {
+    width: 100%;
+    display: inline-block;
+    padding: 12px 14px;
+    background: #4d4e42;
+    color: #B7B89F;
+    border-radius: 12px;
+    text-shadow: none;
+  }
+}
+
+/* Daha küçük telefonlar: 1 sütun yap */
+@media (max-width: 420px) {
+  #s, #t, #f, #fi {
+    width: 100%;
+    height: 170px;
+  }
+}
+@media (max-width: 768px) {
+  #s:active, #t:active, #f:active, #fi:active {
+    transform: scale(1);
+  }
+}
+
